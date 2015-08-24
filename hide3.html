@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+.tooltiptop {
+  width: 100%;
+  height: 50px;
+  margin-top:-50px;
+  display:none;
+}
+.tooltiptop .bg {
+  width: 100%;
+  background-color: #333;
+  height: 50px;
+  opacity: .7;
+  position: absolute;
+  margin: 0;
+}
+.tooltiptop .main {
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+}
+.tooltiptop .main span {
+  float: right;
+  color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+}
+</style>
+</head>
+    <body>
+<div class="tooltiptop">
+ <div class="bg"></div>
+ <div class="main"><i>Jq顶部弹出框</i><span onClick="ToolTipTop.Hide();" title="关闭">X</span></div>
+</div>
+<script src="http://libs.useso.com/js/jquery/1.8.2/jquery.min.js"></script>
+<script>
+var ToolTipTop={
+  Show:function(Msg){
+    $(".tooltiptop .main i").html(Msg);
+    $(".tooltiptop").css("display","block").animate({marginTop:"0px"},500);
+  },
+  Hide:function(){
+    $(".tooltiptop").animate({marginTop:"-50px"},500,function(){$(this).css("display","none")});
+  }
+}
+</script>
+    </body>
+</html>
